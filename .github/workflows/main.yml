@@ -8,6 +8,19 @@ on:
         default: 'warning' 
       tags: 
         description: 'Test scenario tags' 
+      environment:
+        type: environment
+        description: Select the environment
+      boolean:
+        type: boolean
+        description: True or False
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - foo
+        - bar
+        - baz
 
 jobs:
   build:
@@ -23,3 +36,6 @@ jobs:
         run: |
           echo "Log level: ${{ github.event.inputs.logLevel }}" 
           echo "Tags: ${{ github.event.inputs.tags }}" 
+          echo "environment is ${{ github.event.inputs.environment }}"
+          echo "boolean is ${{ github.event.inputs.boolean }}"
+          echo "choice is ${{ github.event.inputs.choice }}"
