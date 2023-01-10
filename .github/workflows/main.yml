@@ -39,3 +39,13 @@ jobs:
           echo "environment is ${{ github.event.inputs.environment }}"
           echo "boolean is ${{ github.event.inputs.boolean }}"
           echo "choice is ${{ github.event.inputs.choice }}"
+  
+  job2:
+    runs-on: windows-latest
+    needs: build
+    # needs: [job1, job2]
+    steps:
+      - name: step3:-Automatically install the libraries.
+        run: |
+          echo run over!!!!
+
